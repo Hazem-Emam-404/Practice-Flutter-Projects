@@ -1,16 +1,38 @@
-# first_session
+# Facebook Profile Card (first_session)
 
-A new Flutter project.
+A basic Flutter app that displays a profile card with name, email, and phone number.
+
+## Features
+
+- AppBar with icon and title
+- Profile picture using `CircleAvatar`
+- User details using `ListTile`
+- Responsive layout with `Container`, `Column`, and `Padding`
+- Styled using clean color schemes and spacing
+
+## Widgets Used
+
+- `AppBar`
+- `Container`
+- `CircleAvatar`
+- `ListTile`
+- `Icon`
+- `Text`
+- `Column`
+- `Padding`
+- `SizedBox`
+- `SingleChildScrollView`
+
+## Screenshot
+
+> You can add a screenshot here after taking one from the app  
+> Upload it and use:  
+> `![Screenshot](path/to/image.png)`
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To run this project:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+flutter run
