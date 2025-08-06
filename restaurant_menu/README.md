@@ -2,4 +2,4 @@
 
 A new Flutter project.
 
-![Menu screenshot](assets/images/screen.jpg)
+![Menu screenshot](assets/images/screen.png)
