@@ -68,61 +68,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.plusJakartaSansTextTheme(),
         scaffoldBackgroundColor: Color(0xFF211212),
       ),
-      home: Scaffold(
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-            NavigationDestination(icon: Icon(Icons.menu), label: "Menu"),
-            NavigationDestination(icon: Icon(Icons.settings), label: "Setting"),
-
-          ],
-          selectedIndex: 1,
-        ),
-        appBar: AppBar(
-          title: Text("Menu"),
-          centerTitle: true,
-          leading: Icon(Icons.arrow_back_sharp, color: Colors.white, size: 24),
-          backgroundColor: Color(0xFF211212),
-        ),
-        body: ListView(
-          children: [
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.only(
-                left: 16,
-                right: 16,
-                top: 20,
-                bottom: 12,
-              ),
-              child: Text(
-                "Categories",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListView.separated(
-              itemCount: categories.length,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Category_item(cat: categories[index]);
-              },
-              separatorBuilder: (context, index) {
-                return Divider(
-                  color: Color(0xFF472426),
-                  thickness: 1,
-                  height: 1,
-                  indent: 16,
-                  endIndent: 16,
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      home: HomePage()
     );
   }
 }
@@ -199,6 +145,78 @@ class Category_item extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(12),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget{
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage>{
+  int currentIndex = 4;
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      bottomNavigationBar: NavigationBar(
+        destinations: [
+          NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+          NavigationDestination(icon: Icon(Icons.menu), label: "Menu"),
+          NavigationDestination(icon: Icon(Icons.settings), label: "Setting"),
+
+        ],
+        selectedIndex: currentIndex,
+        onDestinationSelected: (int value){
+          print("hello");
+        },
+      ),
+      appBar: AppBar(
+        title: Text("Menu"),
+        centerTitle: true,
+        leading: Icon(Icons.arrow_back_sharp, color: Colors.white, size: 24),
+        backgroundColor: Color(0xFF211212),
+      ),
+      body: ListView(
+        children: [
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 20,
+              bottom: 12,
+            ),
+            child: Text(
+              "Categories",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          ListView.separated(
+            itemCount: categories.length,
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return Category_item(cat: categories[index]);
+            },
+            separatorBuilder: (context, index) {
+              return Divider(
+                color: Color(0xFF472426),
+                thickness: 1,
+                height: 1,
+                indent: 16,
+                endIndent: 16,
+              );
+            },
           ),
         ],
       ),
